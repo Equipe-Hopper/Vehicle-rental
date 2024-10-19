@@ -46,4 +46,23 @@ class Veiculo:
     
     def mostrar_info(self):
         return print(f"modelo: {self.modelo} marca: {self.marca} ano do veiculo: {self.ano_veiculo} valor da diaria: {self.valor_aluguel_dia} tipo de combustivel: {self.combustivel}")
+    
+    def calcular_aluguel(self, dias, desconto=0):
+        valor_total = dias * self.valor_aluguel_dia
         
+        if self.__combustivel == 'gasolina':
+            valor_total *= 0.95  
+        
+        if dias > 7:
+            valor_total *= 0.90  
+        valor_total -= desconto  
+        return valor_total
+    
+    @classmethod
+    def calcular_veiculos_cadastrados(cls):
+        return cls.total_veiculos
+    
+    @classmethod
+    def aplicar_aumento(cls,percentual):
+        cls.valor_aluguel_dia *= (1 + percentual / 100)
+    
