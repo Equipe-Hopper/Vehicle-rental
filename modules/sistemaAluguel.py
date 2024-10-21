@@ -11,3 +11,6 @@ class SistemaDeAluguel:
 
     def calcular_total_veiculos(self):
         return len(self.frota)
+    
+    
+
